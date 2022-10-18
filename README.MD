@@ -26,28 +26,27 @@ This project was created with :
 
 * To run App you need to have XAMPP and MySQL Workbench.
 * Create new folder  or download to your XAMPP directory (C:\xampp\htdocs). 
-* With Visual Studio Code.
-* Composer installation to launch this project:
-    * Navigate to directory, where you want to install Composer;
-    * You can install composer with your command line (copy and paste theese commands in your command line):
-        * php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-       * php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-       * php composer-setup.php
-       * php -r "unlink('composer-setup.php');"
-
-* Open terminal and paste this:
+* Composer installation to launch this project better you need to use powershell terminal:
+    * Navigate to directory C:\xampp\htdocs,  and to install it:
+     1. You can install composer with your command line (copy and paste theese commands in your command line):
+     2.  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+     3.  php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+     4. php composer-setup.php
+     5. php -r "unlink('composer-setup.php');"
+* With Visual Studio Code:
+    * Open terminal and paste this:
 
             git clone  https://github.com/Evaldas88/Project-with-ORM.git  
-* In the terminal post this(if composer was instaleted in C:\xampp\htdocs) : 
+    * In the terminal post this(if composer was instaleted in C:\xampp\htdocs) : 
+
             php ../composer.phar install  
 
-* For database schema generation (powershell recommended, because with Git Bash it could not work) type in terminal:
+    * For database schema generation (powershell recommended, because with Git Bash it could not work) type in terminal:
 
             vendor\bin\doctrine orm:schema-tool:update --force --dump-sql.
 
 * With Visual Studio Code.
-* Composer installation to launch this project:
-* Import db.sql in to the MySQL Workbench.
+* Import db.sql in to the MySQL Workbench (If you done step with database schema generation, skip this step ).
 * Run XAMPP and start Apache and MySQL server's.
 * Open your browser and in the searchbar paste this:
 
