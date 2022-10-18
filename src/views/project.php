@@ -1,13 +1,11 @@
 <?php
-session_start();
-
+ 
     use Entities\Project;
 
     function redirect_to_root(){
         header("Location: " . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
     }
-    $error="";
-    //create logic
+     //create logic
     if (isset($_POST['create'])) {
         $projects = new Project();
         $projName = htmlspecialchars($_POST['create']);
@@ -16,11 +14,9 @@ session_start();
                 $projects   ->setProjName($projName);
                 $entityManager->persist($projects);
                 $entityManager->flush();
-                redirect_to_root();
+                  redirect_to_root();
             }
-            else {
-                $error= "<p class='message'>Please choose other name</p>"; 
-            }
+            
         }
         //delete logic
     if(isset($_POST['delete'])){
@@ -41,15 +37,12 @@ session_start();
             $entityManager->flush();
             redirect_to_root();
         }
-        else {
-            $error= "<p class='message'>Please choose other name</p>"; 
-        }
+         
     }
     ?>
     <!DOCTYPE html>
-    <?php include "src/views/fragments/header.php"; include "src/views/scripts/script.php";
-     ?>
-<title>Projects</title>
+    <?php include "src/views/fragments/header.php"; include "src/views/fragments/message.php"?>
+ <title>Projects</title>
 
 </head>
 
@@ -103,7 +96,8 @@ session_start();
                     <button class='btn btn-secondary' type='updates' name='updates' value='" . $_POST['update'] . "'><i class='bi bi-box-arrow-in-right me-1'></i>Enter </button>
             </form>");
     }
-    ?>
+     include "./src/views/fragments/footer.php"; ?>
+
  </body>
 
 </html>
