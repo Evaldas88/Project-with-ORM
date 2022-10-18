@@ -6,7 +6,7 @@ if (!isset($_POST['update'])) {
             <div class='card bg-secondary p-2 text-dark bg-opacity-25'>
                <div class='card-body'>
                   <form class=' text-center' action='' method='POST'>
-                     <input class='mb-1' type='text' name='fname' placeholder='Name' required></br>
+                     <input class='mb-1' type='text' name='fname' placeholder='First name' required></br>
                      <input class='mb-3' type='text' name='lname' placeholder='Last Name' required></br>
                      <label for='exampleInputEmail1' class='form-label'>Select project: </label>");
    $projects = $entityManager->getRepository('Entities\Project')->findAll();
@@ -28,22 +28,18 @@ if (!isset($_POST['update'])) {
             <div class='card bg-secondary p-2 text-dark bg-opacity-25'>
                <div class='card-body'>
                   <form class='text-center ' action='' method='POST'>");
-
    $employee = $entityManager->find('Entities\People', $_POST['update']);
-   print("<input class='mb-1'  type='text' name='fname' placeholder=' ' value='" . $employee->getName() . "'required></br>
-         <input class='mb-3' type='text' name='lname' placeholder='  ' value='" . $employee->getSurname() . "' required></br>
-         <label for='exampleInputEmail1' class='form-label'>Select project: </label> "
-      );
+   print("<input class='mb-1'  type='text' name='fname' placeholder='First name' value='" . $employee->getName() . "'required></br>
+         <input class='mb-3' type='text' name='lname' placeholder=' Last name ' value='" . $employee->getSurname() . "' required></br>
+         <label for='exampleInputEmail1' class='form-label'>Select project: </label> ");
    $projects = $entityManager->getRepository('Entities\Project')->findAll();
    print("<select id='projId' name='projId'  >");
    foreach ($projects as $project) {
       print("<option value='" . $project->getId() . "'>" . $project->getProjName() . "</option>");
    }
    print("</select></br>
-               <div class='mt-3'>
-                  <button class='btn btn-info' type='submit' name='updateDB value='" . $_POST['update'] . "'><i class='bi bi-pen me-2'></i>Update</button>
-               </div>
-            </form>
+                   <button class='btn btn-info' type='submit' name='updateDB' value='" . $_POST['update'] . "'><i class='bi bi-pen me-2'></i>Update</button>
+             </form>
          </div>
       </div>
    </div>");

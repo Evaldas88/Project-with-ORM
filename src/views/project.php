@@ -66,7 +66,6 @@
         <?php
         //creating table  from class
        foreach ($projects as $project) {
-      
         print("<tr>
                 <td>" . $project->getId() . "</td>
                 <td>" . $project->getProjName()  . "</td>

@@ -43,10 +43,9 @@ foreach ($projects as $project) {
   $persons = implode(", ", $concated);
 
   print("<tr>
-             <td>" . $project->getId() . "</td>
-              <td> " . $project->getProjName() . "</td>
+               <td>" . $project->getId() . "</td>
+               <td> " . $project->getProjName() . "</td>
                <td>" . $persons . "</td>
-
            </tr>");
 
 }

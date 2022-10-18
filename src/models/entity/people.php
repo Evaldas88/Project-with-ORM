@@ -27,7 +27,7 @@ class People
 
     protected $lname;
     /** 
-     * @ORM\ManyToOne(targetEntity="project", inversedBy="peopleAndprojects")
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="peopleAndprojects")
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id", onDelete="SET NULL")
      */
     public $project_id;
@@ -42,7 +42,7 @@ class People
     }
     public function getName()
     {
-        return $this->lname;
+        return $this->fname;
     }
     public function setSurname($lname)
     {

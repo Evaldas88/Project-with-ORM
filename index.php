@@ -1,5 +1,5 @@
-
 <?php
+ini_set('display_errors', 1);
 include_once './bootstrap.php';
 ?>
 
@@ -18,28 +18,28 @@ include_once './bootstrap.php';
 <body>
    <?php
 
-   $url = $_SERVER['REQUEST_URI'];
+$url = $_SERVER['REQUEST_URI'];
 
-   switch ($url) {
-      case '/projects/':
-         require __DIR__ . '/src/views/index.php';
-         break;
-      case '/projects':
-         require __DIR__ . 'src/views/index.php';
-         break;
-      case '/projects/people':
-         require __DIR__ . '/src/views/people.php';
-         break;
-         case '/projects/project':
-            require __DIR__ . '/src/views/project.php';
-            break;
-            
-      // default:
-      //    http_response_code(404);
-      //    require __DIR__ . '/src/models/404.php';
-      //    break;
-   }
-   ?>
+switch ($url) {
+   case '/projects/':
+      require __DIR__ . '/src/views/index.php';
+      break;
+   case '/projects':
+      require __DIR__ . 'src/views/index.php';
+      break;
+   case '/projects/people':
+      require __DIR__ . '/src/views/people.php';
+      break;
+   case '/projects/project':
+      require __DIR__ . '/src/views/project.php';
+      break;
+
+   default:
+      http_response_code(404);
+      require __DIR__ . '/src/views/404.php';
+      break;
+}
+?>
 </body>
 
 </html>

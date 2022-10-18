@@ -1,41 +1,32 @@
  <?php
- 
- 
    use Entities\People;
-
    function redirect_to_root(){
       header("Location: " . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
    }
 
   $error="";
 
-   if(isset($_POST['create']))
-   {$input_name = trim($_POST["fname"]);
-    $input_lastname = trim($_POST["lname"]);
-   if (empty($input_name) or empty($input_lastname)) {
-    $error = "Please make sure all fields are filled   correctly!";
-  } else{
+     if(isset($_POST['create']) ){
     $employee = new Entities\People();
     $fname = htmlspecialchars($_POST['fname']);
     $lname = htmlspecialchars($_POST['lname']);
     $project = $entityManager->find('Entities\Project',$_POST['projId']);
+    $employee->getProj($project);
     $employee->setName($fname);
     $employee->setSurname($lname);
-    $employee->getProj($project);
     $entityManager->persist($employee);
     $entityManager->flush();
     redirect_to_root();
-  }}
- 
+  }  
+
  if(isset($_POST['delete'])){
  $employee = $entityManager->find('Entities\People', $_POST['delete']);
  $entityManager->remove($employee);
  $entityManager->flush();
-
  redirect_to_root();
  }
+
  if(isset($_POST['updateDB'])){
-  
   $fname = htmlspecialchars($_POST['fname']);
   $lname = htmlspecialchars($_POST['lname']);
   $employee = $entityManager->find('Entities\People', $_POST['updateDB']);
@@ -45,7 +36,8 @@
   $employee->setSurname($lname);
   $entityManager->flush();
   redirect_to_root();
-}?> 
+}
+  ?> 
 
  <!DOCTYPE html>
 <html lang="en">
@@ -103,17 +95,12 @@ include "src/views/fragments/message.php"?>
                    </td>  
                 </tr>"
           );
-          
         }
           ?>
-       
-  </div>
-  </tbody>
+        </div>
+    </tbody>
   </table>
-  
-  <?php 
-  include_once "src/views/edit.php";
-  include "./src/views/fragments/footer.php"; ?>
+    <?php  include_once "src/views/edit.php";  include "./src/views/fragments/footer.php"; ?>
 
 </body>
 
