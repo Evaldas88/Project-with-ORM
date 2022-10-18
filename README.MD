@@ -7,14 +7,16 @@ This project was created with :
 * HTML
 * MySQL Workbench 
 
-# In this File Browser  you can:
+# In this File Browser  you can:    
 
 * Create people
 * Create people
 * Create project's section
 * Delete people and projects
 * Edit people and projects
-* All these changes will be updated in MySQL database.
+* All these changes will be updated in Database.
+* Display DB schema tables data with their relations into browser using PHP
+
 
 #  Screenshot of app
 <p float="left">
