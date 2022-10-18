@@ -37,7 +37,9 @@ This project was created with :
 * Open terminal and paste this:
 
             git clone  https://github.com/Evaldas88/Project-with-ORM.git  
-* In the terminal post this     php ../composer.phar install  if composer was instaleted in C:\xampp\htdocs
+* In the terminal post this(if composer was instaleted in C:\xampp\htdocs) : 
+            php ../composer.phar install  
+
 * For database schema generation (powershell recommended, because with Git Bash it could not work) type in terminal:
 
    * vendor\bin\doctrine orm:schema-tool:update --force --dump-sql.
