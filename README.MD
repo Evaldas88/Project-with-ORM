@@ -33,6 +33,7 @@ This project was created with :
      3.  php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
      4. php composer-setup.php
      5. php -r "unlink('composer-setup.php');"
+* Create schema in the MySQL Workbench  wiht name - dbproject
 * With Visual Studio Code:
     * Open terminal and paste this:
 
@@ -41,23 +42,17 @@ This project was created with :
 
             php ../composer.phar install  
 
+    * Create database schema in the MySQL Workbench  with name - dbproject
     * For database schema generation (powershell recommended, because with Git Bash it could not work) type in terminal:
 
             vendor\bin\doctrine orm:schema-tool:update --force --dump-sql.
 
 * With Visual Studio Code.
-* Import db.sql in to the MySQL Workbench (If you done step with database schema generation, skip this step ).
 * Run XAMPP and start Apache and MySQL server's.
 * Open your browser and in the searchbar paste this:
 
         http://localhost/Project-with-ORM/index.php 
 
-#  Screenshots how to import database to MySQL Workbench
-
-<p float="left">
-    <img src="src\views\images\import.jpg" width="500" >     
-    <img src="src\views\images\import1.jpg" width="500" > 
-</p> 
 
 
 
