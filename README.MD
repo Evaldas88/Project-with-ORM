@@ -19,7 +19,7 @@ This project was created with :
 
 #  Screenshot of app
 <p float="left">
-    <img src="src\views\images\image1.png" width="500" >     
+    <img src="src\style\images\image1.png" width="500" >     
  </p> 
 
 # Installiation
