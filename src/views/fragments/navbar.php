@@ -1,7 +1,4 @@
-<?php
-// function for active navrbar
- 
-?>
+
 
 <body>
    <nav class="navbar navbar-expand-lg bg-secondary py-1 mb-3   ">

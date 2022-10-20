@@ -23,7 +23,7 @@ if (!isset($_POST['update'])) {
             </div>
           </div>");
 
-} else if (isset($_POST['update'])) {
+} else  {
    print("<div class=' container  d-flex justify-content-center m-5'>
             <div class='card bg-secondary p-2 text-dark bg-opacity-25'>
                <div class='card-body'>

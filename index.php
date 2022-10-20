@@ -21,16 +21,16 @@ include_once './bootstrap.php';
 $url = $_SERVER['REQUEST_URI'];
 
 switch ($url) {
-   case '/projects/':
+   case '/Project-with-ORM/':
       require __DIR__ . '/src/views/index.php';
       break;
-   case '/projects':
+   case '/Project-with-ORM':
       require __DIR__ . 'src/views/index.php';
       break;
-   case '/projects/people':
+   case '/Project-with-ORM/people':
       require __DIR__ . '/src/views/people.php';
       break;
-   case '/projects/project':
+   case '/Project-with-ORM/project':
       require __DIR__ . '/src/views/project.php';
       break;
 

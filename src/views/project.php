@@ -41,7 +41,7 @@
     }
     ?>
     <!DOCTYPE html>
-    <?php include "src/views/fragments/header.php"; include "src/views/fragments/message.php"?>
+    <?php include "src/views/fragments/header.php";?>
  <title>Projects</title>
 
 </head>
@@ -70,7 +70,7 @@
                 <td>" . $project->getId() . "</td>
                 <td>" . $project->getProjName()  . "</td>
         <td>" .
-                    "<form method='POST' action=''>'
+                    "<form method='POST' action=''>
                         <button  class='btn btn-info me-1' id='update' name='update' value='" . $project->getId() . "'><i class='bi bi-pen'></i></buttton>
                         <button class='btn btn-danger' id= 'delete' name='delete' value='" . $project->getId() . "'><i class='bi bi-trash3-fill'></i></buttton>
                     </form>
@@ -88,7 +88,7 @@
             <button  class='btn btn-secondary'><i class='bi bi-box-arrow-in-right me-1'></i>Enter </button>
         </form>");
     }
-    else if (isset($_POST['update'])){
+    else {
         $project = $entityManager->find('Entities\Project', $_POST['update']);
         print("<form class='pt-5' action='' method='POST'>      
            <input type='text' name='nameUpdate' value='" . $project->getProjName()  . "' required>

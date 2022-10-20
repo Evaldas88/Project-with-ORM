@@ -43,8 +43,7 @@
 <html lang="en">
 
 <head>
-<?php include "src/views/fragments/header.php"; 
-include "src/views/fragments/message.php"?>
+<?php include "src/views/fragments/header.php";?>
 <title>People</title>
 </head>
 
