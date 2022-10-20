@@ -4,7 +4,6 @@
       header("Location: " . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
    }
 
-  $error="";
 
      if(isset($_POST['create']) ){
     $employee = new Entities\People();
@@ -15,15 +14,21 @@
     $employee->setName($fname);
     $employee->setSurname($lname);
     $entityManager->persist($employee);
+    $_SESSION['message'] = "People has been created";
+    $_SESSION['type'] = "success";
     $entityManager->flush();
     redirect_to_root();
+    exit;
   }  
 
  if(isset($_POST['delete'])){
  $employee = $entityManager->find('Entities\People', $_POST['delete']);
  $entityManager->remove($employee);
+ $_SESSION['message'] = "People has been created";
+ $_SESSION['type'] = "danger";
  $entityManager->flush();
  redirect_to_root();
+ exit;
  }
 
  if(isset($_POST['updateDB'])){
@@ -34,8 +39,11 @@
   $employee->getProj($project);
   $employee->setName($fname);
   $employee->setSurname($lname);
+  $_SESSION['message'] = "People has been updated";
+  $_SESSION['type'] = "warning";
   $entityManager->flush();
   redirect_to_root();
+  exit;
 }
   ?> 
 
@@ -43,15 +51,16 @@
 <html lang="en">
 
 <head>
-<?php include "src/views/fragments/header.php";?>
+<?php include "src/views/fragments/header.php";
+?>
 <title>People</title>
 </head>
 
 <body>
-<?php include "src/views/fragments/navbar.php"; ?>
+<?php include "src/views/fragments/navbar.php";
+include "src/views/message.php"; ?>
 
   <div class="container pt-1">
-    
     <table class="table  table-bordered mt-5 text-center">
       <thead>
         <tr class="bg-dark  p-2 text-white bg-opacity-75">
@@ -99,7 +108,8 @@
         </div>
     </tbody>
   </table>
-    <?php  include_once "src/views/edit.php";  include "./src/views/fragments/footer.php"; ?>
+    <?php  include_once "src/views/edit.php";  include "./src/views/fragments/footer.php";
+    include "./src/views/scripts/script.php"; ?>
 
 </body>
 
