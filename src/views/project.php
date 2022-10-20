@@ -6,12 +6,13 @@ function redirect_to_root()
     header("Location: " . parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
 }
 //create logic
+$error1 = '';
+
 if (isset($_POST['create'])) {
     $projects = new Project();
     $projName = htmlspecialchars($_POST['create']);
     $checkDb = $entityManager->getRepository('Entities\Project')->findBy(array("project_name" => $projName));
-
-    if (!isset($checkDb[0])) {
+    if ($checkDb[0] === NULL) {
         $projects->setProjName($projName);
         $entityManager->persist($projects);
         $entityManager->flush();
@@ -19,7 +20,9 @@ if (isset($_POST['create'])) {
         $_SESSION['type'] = "success";
         redirect_to_root();
         exit;
-    }
+    }else
+        $error1 = "Project with his name already exists ";
+    
 }
 //delete logic
 if (isset($_POST['delete'])) {
@@ -33,19 +36,21 @@ if (isset($_POST['delete'])) {
 }
 
 //update logic
-$error = "";
-if (isset($_POST['updates'])) {
+$error = '';
+
+ if (isset($_POST['updates'])) {
     $project = $entityManager->find('Entities\Project', $_POST['updates']);
     $projName = htmlspecialchars($_POST['nameUpdate']);
-    $checkFromDb = $entityManager->getRepository('Entities\Project')->findBy(array("project_name" => $projName));
-    if ($checkFromDb[0] === NULL) {
+    $checkDb = $entityManager->getRepository('Entities\Project')->findBy(array("project_name" => $projName));
+    if ($checkDb[0] === NULL) {
         $project->setProjName($projName);
         $_SESSION['message'] = "Project has been updated";
         $_SESSION['type'] = "warning";
         $entityManager->flush();
         redirect_to_root();
         exit;
-    }
+    }else 
+        $error = "Project with his name already exists ";
 
 }
 ?>
@@ -63,6 +68,8 @@ $projects = $entityManager->getRepository('Entities\Project')->findAll();
 
 
     <div class="container pt-1">
+    <p class='text-danger '><?php print $error; print $error1?></p>
+
         <table class="table  table-bordered mt-5 text-center">
             <thead>
                 <tr class="bg-dark  p-2 text-white bg-opacity-75">
