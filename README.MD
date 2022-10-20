@@ -35,6 +35,7 @@ This project was created with :
      5. php -r "unlink('composer-setup.php');"
 * Create schema in the MySQL Workbench  wiht name - dbproject
 * With Visual Studio Code:
+
     * Open terminal and paste this:
 
             git clone  https://github.com/Evaldas88/Project-with-ORM.git  
