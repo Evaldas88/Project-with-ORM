@@ -46,7 +46,7 @@ This project was created with :
     * Create database schema in the MySQL Workbench  with name - dbproject
     * For database schema generation (powershell recommended, because with Git Bash it could not work) type in terminal:
 
-            vendor\bin\doctrine orm:schema-tool:update --force --dump-sql.
+            vendor\bin\doctrine orm:schema-tool:update --force
 
 * With Visual Studio Code.
 * Run XAMPP and start Apache and MySQL server's.
